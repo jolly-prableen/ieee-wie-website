@@ -7,13 +7,6 @@ export default function HeroSection() {
     <section className="relative z-10 grid grid-cols-1 lg:grid-cols-[42%_58%] gap-8 px-10 pt-16 pb-12 max-w-[1400px] mx-auto">
       <HeroContent />
       <div className="relative h-[620px]">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 60% at 50% 45%, rgba(168,85,247,0.45), rgba(139,92,246,0.15) 45%, transparent 75%)",
-          }}
-        />
         <img
           src="/hologram.jpg"
           alt=""

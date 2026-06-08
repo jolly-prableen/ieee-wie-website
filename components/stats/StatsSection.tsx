@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import GlassCard from "@/components/ui/GlassCard";
@@ -6,8 +9,14 @@ import { stats } from "@/lib/data";
 
 export default function StatsSection() {
   return (
-    <section className="relative z-10 max-w-[1320px] mx-auto px-10 pb-16">
-      <GlassCard className="rounded-2xl p-10 grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10">
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="relative z-10 max-w-[1320px] mx-auto px-10 pb-16"
+    >
+      <GlassCard className="rounded-2xl p-10 grid grid-cols-1 lg:grid-cols-[38%_62%] gap-6">
         <div>
           <div className="text-xs tracking-[0.25em] text-purple-300/90 font-medium">
             WHAT IS WIE?
@@ -30,9 +39,11 @@ export default function StatsSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="flex flex-row items-center justify-center gap-3 self-center h-full">
           {stats.map((stat) => (
-            <StatCard key={stat.label} {...stat} />
+            <div key={stat.label} className="w-[160px]">
+              <StatCard {...stat} />
+            </div>
           ))}
         </div>
       </GlassCard>
@@ -40,6 +51,6 @@ export default function StatsSection() {
       <div className="flex justify-end mt-4 pr-2">
         <Sparkles className="w-5 h-5 text-purple-400/60" />
       </div>
-    </section>
+    </motion.section>
   );
 }

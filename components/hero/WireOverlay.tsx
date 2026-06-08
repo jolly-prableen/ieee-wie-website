@@ -16,6 +16,15 @@ export default function WireOverlay() {
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+        <filter id="spark-bloom" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="1.8" result="b1" />
+          <feGaussianBlur stdDeviation="4" result="b2" />
+          <feMerge>
+            <feMergeNode in="b2" />
+            <feMergeNode in="b1" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
         <linearGradient id="wire-grad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#E9D5FF" stopOpacity="0.9" />
           <stop offset="50%" stopColor="#B67CFF" stopOpacity="0.85" />
@@ -27,7 +36,148 @@ export default function WireOverlay() {
           <stop offset="70%" stopColor="#B67CFF" stopOpacity="0.55" />
           <stop offset="100%" stopColor="#B67CFF" stopOpacity="0" />
         </radialGradient>
+        <radialGradient id="arc-grad">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="40%" stopColor="#C084FC" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#A855F7" stopOpacity="0" />
+        </radialGradient>
       </defs>
+
+      {/* Electric arcs */}
+      <g filter="url(#spark-bloom)">
+        <path
+          d="M 30,20 L 33,24 L 28,26 L 32,30"
+          fill="none"
+          stroke="#C084FC"
+          strokeWidth="0.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0"
+        >
+          <animate
+            attributeName="opacity"
+            values="0;0;0.8;0"
+            keyTimes="0;0.3;0.5;0.7"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 72,22 L 68,26 L 73,28 L 69,32"
+          fill="none"
+          stroke="#A855F7"
+          strokeWidth="0.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0"
+        >
+          <animate
+            attributeName="opacity"
+            values="0;0;0.7;0"
+            keyTimes="0;0.5;0.7;0.9"
+            dur="5s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 22,58 L 27,56 L 25,62 L 30,60"
+          fill="none"
+          stroke="#C084FC"
+          strokeWidth="0.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0"
+        >
+          <animate
+            attributeName="opacity"
+            values="0;0;0.9;0"
+            keyTimes="0;0.1;0.3;0.5"
+            dur="3.8s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 75,58 L 70,62 L 76,64 L 71,68"
+          fill="none"
+          stroke="#A855F7"
+          strokeWidth="0.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0"
+        >
+          <animate
+            attributeName="opacity"
+            values="0;0;0.8;0"
+            keyTimes="0;0.4;0.6;0.8"
+            dur="4.5s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
+
+      {/* Spark dots */}
+      <g filter="url(#spark-bloom)">
+        <circle cx="30" cy="20" r="0.8" fill="#E9D5FF" opacity="0">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            keyTimes="0;0.45;0.55"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="r"
+            values="0.4;1.2;0.4"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="75" cy="22" r="0.8" fill="#E9D5FF" opacity="0">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            keyTimes="0;0.65;0.75"
+            dur="5s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="r"
+            values="0.4;1.2;0.4"
+            dur="5s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="22" cy="62" r="0.8" fill="#E9D5FF" opacity="0">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            keyTimes="0;0.25;0.35"
+            dur="3.8s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="r"
+            values="0.4;1.2;0.4"
+            dur="3.8s"
+            repeatCount="indefinite"
+          />
+        </circle>
+        <circle cx="71" cy="68" r="0.8" fill="#E9D5FF" opacity="0">
+          <animate
+            attributeName="opacity"
+            values="0;1;0"
+            keyTimes="0;0.55;0.65"
+            dur="4.5s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="r"
+            values="0.4;1.2;0.4"
+            dur="4.5s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      </g>
 
       {/* Wire 1: top-left */}
       <g>

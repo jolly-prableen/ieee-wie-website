@@ -41,8 +41,8 @@ export const floatingCards = [
 ] as const;
 
 export const stats = [
-  { value: "500+", label: "Members", icon: Users },
-  { value: "40+", label: "Events", icon: Calendar },
-  { value: "15+", label: "Workshops", icon: GraduationCap },
-  { value: "1000+", label: "Community\nReach", icon: Globe },
+  { value: "500+", num: 500, label: "Members", icon: Users },
+  { value: "40+", num: 40, label: "Events", icon: Calendar },
+  { value: "15+", num: 15, label: "Workshops", icon: GraduationCap },
+  { value: "1000+", num: 1000, label: "Community\nReach", icon: Globe },
 ] as const;

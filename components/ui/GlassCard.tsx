@@ -7,7 +7,7 @@ type GlassCardProps = HTMLAttributes<HTMLDivElement> & {
 export default function GlassCard({ children, className = "", ...props }: GlassCardProps) {
   return (
     <div
-      className={`glass-card ${className}`}
+      className={`glass-card hover-lift ${className}`}
       {...props}
     >
       {children}

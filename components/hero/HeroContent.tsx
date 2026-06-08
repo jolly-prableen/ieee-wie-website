@@ -14,8 +14,9 @@ export default function HeroContent() {
         </div>
       </div>
 
-      <h1 className="font-pixel leading-[1.25] text-[38px] tracking-tight">
+      <h1 className="font-pixel leading-[1.25] text-[48px] md:text-[56px] tracking-tight">
         <div
+          className="animate-pulse-glow"
           style={{
             color: "#A67CFF",
             textShadow:
@@ -25,12 +26,19 @@ export default function HeroContent() {
           Debugging
         </div>
         <div
-          className="mt-4 text-white text-[42px]"
+          className="mt-4 text-white text-[52px] md:text-[60px] relative"
           style={{
             textShadow: "0 0 10px rgba(166,124,255,0.35), 0 0 20px rgba(166,124,255,0.15)",
           }}
         >
-          gender gap<span className="animate-blink text-[#A67CFF]">_</span>
+          <span className="relative inline-block">
+            gender gap
+            <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-purple-400 animate-spark-pulse" />
+          </span>
+          <span className="animate-blink text-[#A67CFF] relative">
+            _
+            <span className="absolute -top-2 -right-2 w-1 h-1 rounded-full bg-purple-300 animate-ping opacity-75" />
+          </span>
         </div>
       </h1>
 
@@ -42,13 +50,13 @@ export default function HeroContent() {
       <div className="mt-8 flex items-center gap-4">
         <Link
           href="#"
-          className="btn-primary-glow flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white"
+          className="btn-primary-glow hover-lift flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white"
         >
           Explore Domains <ArrowRight className="w-4 h-4" />
         </Link>
         <Link
           href="#"
-          className="glass-card flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white"
+          className="glass-card hover-lift hover-glow-intensity flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white"
         >
           Join IEEE WIE <ArrowRight className="w-4 h-4" />
         </Link>
